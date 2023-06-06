@@ -3,6 +3,7 @@
   border-radius: 12px 12px 0px 0px;
   background-color: var(--bg-color-white);
   max-width: 900px;
+  height: 704px;
   width: 100%;
 }
 
@@ -12,12 +13,16 @@
   gap: 8px;
 }
 
-.header {
+.profile__header {
   padding-bottom: 24px;
   display: flex;
   gap: 24px;
   align-items: center;
   border-bottom: 1px solid var(--border-color-black-alpha-8);
+}
+
+.profile__main {
+  padding-top: 24px;
 }
 
 .profile__icon {

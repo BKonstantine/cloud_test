@@ -1,13 +1,14 @@
 import { FC } from "react";
 import cn from "classnames";
 import FolderIcon from "../../icons/folder-icon";
-import ButtonLink from "../../components/UI/button/button-link";
+import ButtonLink from "../../components/UI/button-link/button-link";
+import Input from "../../components/UI/input/input";
 import style from "./main-page.module.css";
 
 const MainPage: FC = () => {
   return (
     <div className={style.profile}>
-      <header className={style.header}>
+      <header className={style.profile__header}>
         <p className={style.profile__icon}>БК</p>
         <div
           className={cn(
@@ -53,8 +54,9 @@ const MainPage: FC = () => {
           </ul>
         </div>
       </header>
-      <main>
-        <ButtonLink to="/create">Начать</ButtonLink>
+      <main className={style.profile__main}>
+        {/* <ButtonLink to="/create">Начать</ButtonLink> */}
+        <Input />
       </main>
     </div>
   );
