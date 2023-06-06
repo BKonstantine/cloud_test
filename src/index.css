@@ -4,3 +4,20 @@
 body {
   font-family: "SB Sans Interface", sans-serif;
 }
+
+:root {
+  --text-color-black: #333333;
+  --text-color-white: #ffffff;
+  --text-color-black-alpha-48: rgba(0, 0, 0, 0.48);
+  --text-color-accent: #5558fa;
+
+  --bg-color-accent: #5558fa;
+  --bg-color-grey: #a6a6a6;
+  --bg-color-icon: #d5e4f7;
+  --bg-color-black-alpha-4: rgba(0, 0, 0, 0.04);
+  --bg-color-black-alpha-4: rgba(0, 0, 0, 0.08);
+
+  --border-color-accent: #5558fa;
+  --border-color-black-alpha-16: rgba(0, 0, 0, 0.16);
+  --border-color-black-alpha-24: rgba(0, 0, 0, 0.24);
+}
