@@ -36,11 +36,15 @@ const MainPage: FC = () => {
         >
           <div className={style.input}>
             <label>Номер телефона</label>
-            <Input disabled value="+7 (924) 364-11-39" />
+            <Input disabled inputSize="large" value="+7 (924) 364-11-39" />
           </div>
           <div className={style.input}>
             <label>Email</label>
-            <Input disabled value="buzunov.constantine@yandex.ru" />
+            <Input
+              disabled
+              inputSize="large"
+              value="buzunov.constantine@yandex.ru"
+            />
           </div>
         </div>
         <ButtonLink to="/create">Начать</ButtonLink>

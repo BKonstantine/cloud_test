@@ -1,17 +1,19 @@
 import { forwardRef, ChangeEvent, FocusEvent, HTMLProps } from "react";
-import style from "./input.module.css"
+import cn from "classnames";
+import style from "./input.module.css";
 
 interface Props extends HTMLProps<HTMLInputElement> {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   value?: string;
   name?: string;
+  inputSize?: "small" | "large";
 }
 
 type Ref = HTMLInputElement;
 
 const Input = forwardRef<Ref, Props>(
-  ({ onChange, onBlur, value, name, ...rest }, ref) => (
+  ({ inputSize = "small", onChange, onBlur, value, name, ...rest }, ref) => (
     <input
       {...rest}
       ref={ref}
@@ -19,7 +21,10 @@ const Input = forwardRef<Ref, Props>(
       name={name}
       onChange={onChange}
       onBlur={onBlur}
-      className={style.input}
+      className={cn(
+        style.input,
+        inputSize === "small" ? style.input_size_small : style.input_size_large
+      )}
     />
   )
 );

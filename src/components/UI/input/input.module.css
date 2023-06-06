@@ -22,3 +22,11 @@
 .input:disabled {
   background-color: var(--bg-color-black-alpha-4);
 }
+
+.input_size_small {
+  max-width: 300px;
+}
+
+.input_size_large {
+  max-width: 400px;
+}
