@@ -1,5 +1,6 @@
 .profile {
   padding: 24px;
+  box-sizing: border-box;
   border-radius: 12px 12px 0px 0px;
   background-color: var(--bg-color-white);
   max-width: 900px;
@@ -16,7 +17,7 @@
 .profile__container_place_main {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
 }
 
 .profile__header {

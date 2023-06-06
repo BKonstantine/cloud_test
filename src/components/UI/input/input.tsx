@@ -1,4 +1,5 @@
 import { forwardRef, ChangeEvent, FocusEvent, HTMLProps } from "react";
+import style from "./input.module.css"
 
 interface Props extends HTMLProps<HTMLInputElement> {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -18,6 +19,7 @@ const Input = forwardRef<Ref, Props>(
       name={name}
       onChange={onChange}
       onBlur={onBlur}
+      className={style.input}
     />
   )
 );
