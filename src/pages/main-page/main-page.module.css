@@ -13,6 +13,12 @@
   gap: 8px;
 }
 
+.profile__container_place_main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .profile__header {
   padding-bottom: 24px;
   display: flex;
@@ -23,6 +29,9 @@
 
 .profile__main {
   padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 .profile__icon {
@@ -64,4 +73,10 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

@@ -55,8 +55,22 @@ const MainPage: FC = () => {
         </div>
       </header>
       <main className={style.profile__main}>
-        {/* <ButtonLink to="/create">Начать</ButtonLink> */}
-        <Input />
+        <div
+          className={cn(
+            style.profile__container,
+            style.profile__container_place_main
+          )}
+        >
+          <div className={style.input}>
+            <label>Номер телефона</label>
+            <Input />
+          </div>
+          <div className={style.input}>
+            <label>Email</label>
+            <Input />
+          </div>
+        </div>
+        <ButtonLink to="/create">Начать</ButtonLink>
       </main>
     </div>
   );
