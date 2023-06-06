@@ -1,0 +1,6 @@
+.app {
+  padding-top: 24px;
+  background-color: var(--bg-color-main);
+  display: flex;
+  justify-content: center;
+}
