@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cn from "classnames";
 import FolderIcon from "../../icons/folder-icon";
-import Button from "../../components/UI/button/button";
+import ButtonLink from "../../components/UI/button/button-link";
 import style from "./main-page.module.css";
 
 const MainPage: FC = () => {
@@ -54,7 +54,7 @@ const MainPage: FC = () => {
         </div>
       </header>
       <main>
-        <Button>Начать</Button>
+        <ButtonLink to="/create">Начать</ButtonLink>
       </main>
     </div>
   );
