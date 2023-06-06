@@ -1,0 +1,14 @@
+.container {
+  list-style: none;
+}
+
+.link {
+  color: var(--text-color-accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5.6px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
