@@ -1,0 +1,32 @@
+.button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  min-width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button_size_small {
+  width: 79px;
+}
+
+.button_size_large {
+  width: 103px;
+}
+
+.button_color_primary {
+  background-color: var(--bg-color-accent);
+  color: var(--text-color-white);
+}
+
+.button_color_secondary {
+  background-color: var(--bg-color-white);
+  color: var(--text-color-accent);
+  border: 1.5px solid var(--border-color-accent);
+}

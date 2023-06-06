@@ -1,6 +1,7 @@
 import { FC } from "react";
 import cn from "classnames";
 import FolderIcon from "../../icons/folder-icon";
+import Button from "../../components/UI/button/button";
 import style from "./main-page.module.css";
 
 const MainPage: FC = () => {
@@ -52,6 +53,9 @@ const MainPage: FC = () => {
           </ul>
         </div>
       </header>
+      <main>
+        <Button>Начать</Button>
+      </main>
     </div>
   );
 };
