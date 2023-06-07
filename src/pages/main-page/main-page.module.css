@@ -17,7 +17,7 @@
 .profile__container_place_main {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 24px;
 }
 
 .profile__header {
@@ -32,7 +32,7 @@
   padding-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 47px;
 }
 
 .profile__icon {
@@ -79,6 +79,7 @@
   align-items: center; 
   margin: 0;
   padding: 0 12px;
+  box-sizing: border-box;
   max-width: 400px;
   height: 44px;
   color: var(--text-color-black-alpha-48);
