@@ -1,0 +1,31 @@
+.steps {
+  display: flex;
+  position: relative;
+}
+
+.step {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: var(--bg-color-black-alpha-8);
+}
+
+.step::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--bg-color-accent);
+  transition: width 0.5s;
+}
+
+.step_active_50::before {
+  width: 50%;
+}
+
+.step_active_100::before {
+  width: 100%;
+}
