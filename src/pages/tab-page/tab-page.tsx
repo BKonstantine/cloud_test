@@ -8,9 +8,9 @@ const TabPage: FC = () => {
   const [step, setStep] = useState(1);
 
   return (
-    <div>
+    <div className={style.tabs}>
+      <Steps step={step} />
       <div className={style.buttons}>
-        <Steps step={step} />
         <ButtonLink to="/" color="secondary">
           Назад
         </ButtonLink>
