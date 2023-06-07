@@ -2,7 +2,6 @@ import { FC } from "react";
 import cn from "classnames";
 import Link from "../../components/UI/link/link";
 import ButtonLink from "../../components/UI/button-link/button-link";
-import Input from "../../components/UI/input/input";
 import style from "./main-page.module.css";
 
 const MainPage: FC = () => {
@@ -34,17 +33,13 @@ const MainPage: FC = () => {
             style.profile__container_place_main
           )}
         >
-          <div className={style.input}>
-            <label>Номер телефона</label>
-            <Input disabled inputSize="large" value="+7 (924) 364-11-39" />
+          <div className={style.info}>
+            <label className={style.info__label}>Номер телефона</label>
+            <p className={style.info__data}>+7 (924) 364-11-39</p>
           </div>
-          <div className={style.input}>
-            <label>Email</label>
-            <Input
-              disabled
-              inputSize="large"
-              value="buzunov.constantine@yandex.ru"
-            />
+          <div className={style.info}>
+            <label className={style.info__label}>Email</label>
+            <p className={style.info__data}>buzunov.constantine@yandex.ru</p>
           </div>
         </div>
         <ButtonLink to="/create">Начать</ButtonLink>
