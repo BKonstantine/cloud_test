@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import style from "./link.module.css";
 import FolderIcon from "../../../icons/folder-icon";
 
@@ -7,7 +7,7 @@ type Props = {
   text: string;
 };
 
-const Link: FC<Props> = ({ href, text }) => {
+const Link: FC<Props> = memo(({ href, text }) => {
   return (
     <li className={style.container}>
       <a
@@ -21,6 +21,6 @@ const Link: FC<Props> = ({ href, text }) => {
       </a>
     </li>
   );
-};
+});
 
 export default Link;

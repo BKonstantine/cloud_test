@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../components/app/app";
 import MainPage from "../pages/main-page/main-page";
-import FormPage from "../pages/form-page/form-page";
+import TabPage from "../pages/tab-page/tab-page";
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/create",
-        element: <FormPage />,
+        element: <TabPage />,
       },
     ],
   },

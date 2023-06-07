@@ -1,8 +1,8 @@
 import { FC } from "react";
-import style from "./form-page.module.css";
+import style from "./tab-page.module.css";
 import Button from "../../components/UI/button/button";
 
-const FormPage: FC = () => {
+const TabPage: FC = () => {
   return (
     <div>
       <div className={style.buttons}>
@@ -13,4 +13,4 @@ const FormPage: FC = () => {
   );
 };
 
-export default FormPage;
+export default TabPage;
