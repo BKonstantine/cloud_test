@@ -13,6 +13,7 @@ body {
 
 :root {
   --text-color-black: #333333;
+  --text-color-dark-grey: #666666;
   --text-color-white: #ffffff;
   --text-color-black-alpha-48: rgba(0, 0, 0, 0.48);
   --text-color-accent: #5558fa;
