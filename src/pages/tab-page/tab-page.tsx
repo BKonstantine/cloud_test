@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useForm, FormProvider } from "react-hook-form";
 import Steps from "../../components/UI/steps/steps";
 import ButtonLink from "../../components/UI/button-link/button-link";
 import Button from "../../components/UI/button/button";
@@ -11,6 +12,13 @@ const TabPage: FC = () => {
   const [step, setStep] = useState(1);
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
+  const methods = useForm();
+
+  console.log(methods.getValues());
+
+  // TODO: Исправить типизацию
+  const onSubmit = (data: any) => console.log(data);
+
   const onClick = (step: number) => {
     setStep(step);
   };
@@ -18,7 +26,9 @@ const TabPage: FC = () => {
   return (
     <div className={style.tabs}>
       <Steps step={step} className={style.tabs__steps} />
-      {tabs[step - 1]}
+      <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(onSubmit)}>{tabs[step - 1]}</form>
+      </FormProvider>
       <div className={style.tabs__buttons}>
         {step === 1 ? (
           <ButtonLink to="/" color="secondary">
@@ -30,7 +40,9 @@ const TabPage: FC = () => {
           </Button>
         )}
         {step === 3 ? (
-          <Button type="submit" buttonSize="large">Отправить</Button>
+          <Button type="submit" buttonSize="large">
+            Отправить
+          </Button>
         ) : (
           <Button onClick={() => onClick(step + 1)}>Вперед</Button>
         )}
