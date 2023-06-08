@@ -54,7 +54,7 @@ const Select: FC<Props> = ({
           }),
           menu: (style) => ({
             ...style,
-            margin: "0",
+            margin: "2px 0 0 0",
           }),
           menuList: (style) => ({
             ...style,
