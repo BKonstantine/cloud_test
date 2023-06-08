@@ -4,9 +4,9 @@ import PointIcon from "../../../icons/point-icon";
 import ArrowIcon from "../../../icons/arrow-icon";
 import style from "./steps.module.css";
 
-type Props = { step: number };
+type Props = { step: number; className?: string };
 
-const Steps: FC<Props> = memo(({ step }) => {
+const Steps: FC<Props> = memo(({ step, className }) => {
   const checkTextColor = (position: number, step: number) => {
     if (position <= step) {
       return style.circle__number_active;
@@ -19,7 +19,7 @@ const Steps: FC<Props> = memo(({ step }) => {
     }
   };
 
-  const checkIcon = (position: number, step: number) => {    
+  const checkIcon = (position: number, step: number) => {
     if (position === step) {
       return <PointIcon />;
     }
@@ -37,7 +37,7 @@ const Steps: FC<Props> = memo(({ step }) => {
   };
 
   return (
-    <div className={style.steps}>
+    <div className={cn(style.steps, className)}>
       <div className={cn(style.circle, style.circle_position_left)}>
         <div className={cn(style.circle__item, checkIconColor(1, step))}>
           {checkIcon(1, step)}
