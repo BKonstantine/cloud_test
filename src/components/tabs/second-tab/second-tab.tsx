@@ -11,44 +11,17 @@ const SecondTab: FC = () => {
       <Controller
         control={control}
         name="Firstname2"
-        render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <Input
-            label="Firstname2"
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            name={name}
-            ref={ref}
-          />
-        )}
+        render={({ field }) => <Input label="Firstname2" {...field} />}
       />
       <Controller
         control={control}
         name="Secondname2"
-        render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <Input
-            label="Secondname2"
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            name={name}
-            ref={ref}
-          />
-        )}
+        render={({ field }) => <Input label="Secondname2" {...field} />}
       />
       <Controller
         control={control}
         name="Fullname2"
-        render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <Input
-            label="Fullname2"
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            name={name}
-            ref={ref}
-          />
-        )}
+        render={({ field }) => <Input label="Fullname2" {...field} />}
       />
     </div>
   );

@@ -10,45 +10,18 @@ const ThirdTab: FC = () => {
     <div className={style.tab}>
       <Controller
         control={control}
-        name="Firstname2"
-        render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <Input
-            label="Firstname2"
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            name={name}
-            ref={ref}
-          />
-        )}
+        name="Firstname3"
+        render={({ field }) => <Input label="Firstname3" {...field} />}
       />
       <Controller
         control={control}
-        name="Secondname2"
-        render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <Input
-            label="Secondname2"
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            name={name}
-            ref={ref}
-          />
-        )}
+        name="Secondname3"
+        render={({ field }) => <Input label="Secondname3" {...field} />}
       />
       <Controller
         control={control}
-        name="Fullname2"
-        render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <Input
-            label="Fullname2"
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            name={name}
-            ref={ref}
-          />
-        )}
+        name="Fullname3"
+        render={({ field }) => <Input label="Fullname3" {...field} />}
       />
     </div>
   );

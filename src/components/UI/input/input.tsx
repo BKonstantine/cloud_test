@@ -15,7 +15,7 @@ type Ref = HTMLInputElement;
 
 const Input = forwardRef<Ref, Props>(
   (
-    { inputSize = "small", label, onChange, onBlur, value, name, ...rest },
+    { inputSize = "small", label, onChange, onBlur, value = "", name, ...rest },
     ref
   ) => (
     <div
