@@ -3,7 +3,7 @@ import cn from "classnames";
 import style from "./button.module.css";
 
 type ButtonType = "button" | "submit" | "reset";
-type ButtonSize = "small" | "large";
+type ButtonSize = "small" | "middle" | "large";
 type ButtonColor = "primary" | "secondary";
 
 interface Props extends HTMLProps<HTMLButtonElement> {
@@ -16,7 +16,7 @@ interface Props extends HTMLProps<HTMLButtonElement> {
 const Button: FC<Props> = memo(
   ({
     type = "button",
-    buttonSize = "small",
+    buttonSize = "middle",
     color = "primary",
     children,
     ...rest
@@ -28,6 +28,8 @@ const Button: FC<Props> = memo(
           style.button,
           buttonSize === "small"
             ? style.button_size_small
+            : buttonSize === "middle"
+            ? style.button_size_middle
             : style.button_size_large,
           color === "primary"
             ? style.button_color_primary
