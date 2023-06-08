@@ -19,10 +19,7 @@ const Steps: FC<Props> = memo(({ step }) => {
     }
   };
 
-  const checkIcon = (position: number, step: number) => {
-    /* if (position > step) {
-      return;
-    } */
+  const checkIcon = (position: number, step: number) => {    
     if (position === step) {
       return <PointIcon />;
     }
