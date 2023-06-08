@@ -44,6 +44,7 @@ const FirstTab: FC = () => {
         render={({ field: { value, onChange } }) => (
           <Select
             placeholder="Не выбрано"
+            label="Sex"
             value={value}
             onChange={onChange}
             options={options}
