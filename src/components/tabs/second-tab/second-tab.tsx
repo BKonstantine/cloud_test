@@ -5,7 +5,7 @@ import style from "./second-tab.module.css";
 const SecondTab: FC = () => {
   return (
     <div>
-      <Input />
+      <Input label="Advantages"/>
     </div>
   );
 };

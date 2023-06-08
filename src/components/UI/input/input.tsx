@@ -26,7 +26,7 @@ const Input = forwardRef<Ref, Props>(
           : style.container_size_large
       )}
     >
-      {label && <label htmlFor={name} className={style.label}></label>}
+      {label && <label htmlFor={name} className={style.label}>{label}</label>}
       <input
         {...rest}
         id={name}

@@ -11,15 +11,29 @@ const TabPage: FC = () => {
   const [step, setStep] = useState(1);
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
+  const onClick = (step: number) => {
+    setStep(step);
+  };
+
   return (
     <div className={style.tabs}>
-      <Steps step={step} className={style.tabs__steps}/>
-      {tabs[step]}
+      <Steps step={step} className={style.tabs__steps} />
+      {tabs[step - 1]}
       <div className={style.tabs__buttons}>
-        <ButtonLink to="/" color="secondary">
-          Назад
-        </ButtonLink>
-        <Button>Вперед</Button>
+        {step === 1 ? (
+          <ButtonLink to="/" color="secondary">
+            Назад
+          </ButtonLink>
+        ) : (
+          <Button onClick={() => onClick(step - 1)} color="secondary">
+            {step === 2 ? "Back" : "Назад"}
+          </Button>
+        )}
+        {step === 3 ? (
+          <Button type="submit" buttonSize="large">Отправить</Button>
+        ) : (
+          <Button onClick={() => onClick(step + 1)}>Вперед</Button>
+        )}
       </div>
     </div>
   );

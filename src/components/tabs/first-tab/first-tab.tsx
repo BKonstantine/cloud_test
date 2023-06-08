@@ -5,7 +5,7 @@ import style from "./first-tab.module.css";
 const FirstTab: FC = () => {
   return (
     <div className={style.tab}>      
-      <Input />
+      <Input label="Nickname"/>
     </div>
   );
 };

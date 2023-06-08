@@ -5,7 +5,7 @@ import style from "./third-tab.module.css";
 const ThirdTab: FC = () => {
   return (
     <div>
-      <Input />
+      <Input label="About"/>
     </div>
   );
 };
