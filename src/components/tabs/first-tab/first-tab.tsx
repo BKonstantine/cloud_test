@@ -10,18 +10,18 @@ const FirstTab: FC = () => {
     <div className={style.tab}>
       <Controller
         control={control}
-        name="Firstname1"
-        render={({ field }) => <Input label="Firstname1" {...field} />}
+        name="field-nickname"
+        render={({ field }) => <Input label="Nickname" {...field} />}
       />
       <Controller
         control={control}
-        name="Secondname1"
-        render={({ field }) => <Input label="Secondname1" {...field} />}
+        name="field-name"
+        render={({ field }) => <Input label="Name" {...field} />}
       />
       <Controller
         control={control}
-        name="Fullname1"
-        render={({ field }) => <Input label="Fullname1" {...field} />}
+        name="field-sername"
+        render={({ field }) => <Input label="Sername" {...field} />}
       />
     </div>
   );
