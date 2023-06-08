@@ -42,7 +42,7 @@ const FirstTab: FC = () => {
       <Controller
         control={control}
         name="field-sex"
-        render={({ field }) => <ReactSelect {...field} />}
+        render={({ field }) => <ReactSelect {...field} options={options}/>}
       />
     </fieldset>
   );
