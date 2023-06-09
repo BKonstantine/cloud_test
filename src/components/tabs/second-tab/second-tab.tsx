@@ -7,7 +7,7 @@ import style from "./second-tab.module.css";
 const SecondTab: FC = () => {
   return (
     <fieldset className={style.tab}>
-      <InputGroup label="Advantages" />
+      <InputGroup label="Advantages" />      
       <CheckboxGroup label="Checkbox group" />
       <RadioGroup label="Radio group" />
     </fieldset>
