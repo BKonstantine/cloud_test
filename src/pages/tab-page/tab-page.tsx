@@ -13,7 +13,7 @@ interface FormData {
 }
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>();

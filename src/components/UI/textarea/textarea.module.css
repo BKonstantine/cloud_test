@@ -1,0 +1,20 @@
+.textarea {
+  box-sizing: border-box;
+  min-height: 84px;
+  padding: 12px;
+  border: 1px solid var(--border-color-black-alpha-16);
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color-black);
+  resize: vertical;
+}
+
+.textarea::placeholder {
+  font-family: "SB Sans Interface", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color-black-alpha-48);
+}
