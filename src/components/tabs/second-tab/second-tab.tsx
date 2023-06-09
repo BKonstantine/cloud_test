@@ -1,28 +1,11 @@
 import { FC } from "react";
-import Checkbox from "../../UI/checkbox/checkbox";
+import CheckboxGroup from "../../checkbox-group/checkbox-group";
 import style from "./second-tab.module.css";
-import { useFormContext, Controller } from "react-hook-form";
 
 const SecondTab: FC = () => {
-  const { control } = useFormContext();
-
   return (
     <fieldset className={style.tab}>
-      <Controller
-        control={control}
-        name="field-checkbox-group-option-1"
-        render={({ field }) => <Checkbox {...field} id="1" />}
-      />
-      <Controller
-        control={control}
-        name="field-checkbox-group-option-2"
-        render={({ field }) => <Checkbox {...field} id="2" />}
-      />
-      <Controller
-        control={control}
-        name="field-checkbox-group-option-3"
-        render={({ field }) => <Checkbox {...field} id="3" />}
-      />
+      <CheckboxGroup label="Checkbox group"/>
     </fieldset>
   );
 };

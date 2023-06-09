@@ -9,19 +9,23 @@ import ThirdTab from "../../components/tabs/third-tab/third-tab";
 import style from "./tab-page.module.css";
 
 interface FormData {
-  [fieldName: string]: string;
+  [fieldName: string]: string | string[];
 }
 
 const TabPage: FC = () => {
   const [step, setStep] = useState(2);
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
-  const methods = useForm<FormData>();
+  const methods = useForm<FormData>({
+    defaultValues: {
+      checkboxes: ["1", "2", "3"],
+    },
+  });
 
   const onSubmit = methods.handleSubmit((data) => console.log(data));
   const onClick = (step: number) => {
     setStep(step);
-  };  
+  };
 
   return (
     <div className={style.tabs}>
