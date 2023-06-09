@@ -6,13 +6,13 @@ interface Props extends HTMLProps<HTMLInputElement> {
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   value?: number;
   name?: string;
-  id?: string;
+  label: string;
 }
 
 type Ref = HTMLInputElement;
 
 const Checkbox = forwardRef<Ref, Props>(
-  ({ id, onChange, onBlur, value, name, ...rest }, ref) => {
+  ({ label, id, onChange, onBlur, value, name, ...rest }, ref) => {
     return (
       <label htmlFor={`${id}checkbox`} className={style.container}>
         <input
@@ -27,7 +27,7 @@ const Checkbox = forwardRef<Ref, Props>(
           ref={ref}
         />
         <span className={style.custom}></span>
-        {value}
+        {label}
       </label>
     );
   }

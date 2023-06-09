@@ -28,6 +28,7 @@ const RadioGroup: FC<Props> = ({ label }) => {
                   onChange={(e) => {
                     onChange(e.target.checked ? Number(e.target.value) : null);
                   }}
+                  label={String(index + 1)}
                   value={index + 1}
                   {...rest}
                 />

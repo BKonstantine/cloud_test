@@ -6,12 +6,13 @@ interface Props extends HTMLProps<HTMLInputElement> {
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   value?: number;
   name: string;
+  label: string;
 }
 
 type Ref = HTMLInputElement;
 
 const Radio = forwardRef<Ref, Props>(
-  ({ id, onChange, onBlur, value, name, ...rest }, ref) => {
+  ({ id, label, onChange, onBlur, value, name, ...rest }, ref) => {
     return (
       <label htmlFor={`${id}radio`} className={style.container}>
         <input
@@ -26,7 +27,7 @@ const Radio = forwardRef<Ref, Props>(
           ref={ref}
         />
         <span className={style.custom}></span>
-        {value}
+        {label}
       </label>
     );
   }
