@@ -4,17 +4,16 @@ import style from "./radio.module.css";
 interface Props extends HTMLProps<HTMLInputElement> {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  value: number;
+  value?: number;
   name: string;
-  inputSize?: "small" | "large";
 }
 
 type Ref = HTMLInputElement;
 
 const Radio = forwardRef<Ref, Props>(
-  ({ onChange, onBlur, value, name, ...rest }, ref) => {
+  ({ id, onChange, onBlur, value, name, ...rest }, ref) => {
     return (
-      <label htmlFor="radio">
+      <label htmlFor={`${id}radio`} className={style.container}>
         <input
           {...rest}
           className={style.real}
@@ -23,10 +22,11 @@ const Radio = forwardRef<Ref, Props>(
           value={value}
           type="radio"
           name={name}
-          id="radio"
+          id={`${id}radio`}
           ref={ref}
         />
         <span className={style.custom}></span>
+        {value}
       </label>
     );
   }

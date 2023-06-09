@@ -1,18 +1,18 @@
 import { FC } from "react";
 import { useFormContext, useFieldArray, Controller } from "react-hook-form";
 import InputLabel from "../UI/input-label/input-label";
-import Checkbox from "../UI/checkbox/checkbox";
-import style from "./checkbox-group.module.css";
+import Radio from "../UI/radio/radio";
+import style from "./radio-group.module.css";
 
 type Props = {
   label: string;
 };
 
-const CheckboxGroup: FC<Props> = ({ label }) => {
+const RadioGroup: FC<Props> = ({ label }) => {
   const { control } = useFormContext();
   const { fields } = useFieldArray({
     control,
-    name: "checkboxes",
+    name: "radios",
   });
 
   return (
@@ -23,7 +23,7 @@ const CheckboxGroup: FC<Props> = ({ label }) => {
           <li className={style.item} key={item.id}>
             <Controller
               render={({ field: { onChange, value, ...rest } }) => (
-                <Checkbox                  
+                <Radio
                   id={String(index)}
                   onChange={(e) => {
                     onChange(e.target.checked ? Number(e.target.value) : null);
@@ -32,7 +32,7 @@ const CheckboxGroup: FC<Props> = ({ label }) => {
                   {...rest}
                 />
               )}
-              name={`field-checkbox-group-option-${index + 1}`}
+              name={`radio`}
               control={control}
             />
           </li>
@@ -42,4 +42,4 @@ const CheckboxGroup: FC<Props> = ({ label }) => {
   );
 };
 
-export default CheckboxGroup;
+export default RadioGroup;

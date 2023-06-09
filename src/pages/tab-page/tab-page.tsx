@@ -9,7 +9,7 @@ import ThirdTab from "../../components/tabs/third-tab/third-tab";
 import style from "./tab-page.module.css";
 
 interface FormData {
-  [fieldName: string]: string | string[];
+  [fieldName: string]: string | number[];
 }
 
 const TabPage: FC = () => {
@@ -18,7 +18,8 @@ const TabPage: FC = () => {
 
   const methods = useForm<FormData>({
     defaultValues: {
-      checkboxes: ["1", "2", "3"],
+      checkboxes: [1, 2, 3],
+      radios: [1, 2, 3],
     },
   });
 
