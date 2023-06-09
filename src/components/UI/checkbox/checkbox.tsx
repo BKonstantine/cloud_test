@@ -14,7 +14,7 @@ type Ref = HTMLInputElement;
 const Checkbox = forwardRef<Ref, Props>(
   ({ id, onChange, onBlur, value, name, ...rest }, ref) => {
     return (
-      <label htmlFor={`${id}checkbox`}>
+      <label htmlFor={`${id}checkbox`} className={style.container}>
         <input
           {...rest}
           className={style.real}
@@ -27,6 +27,7 @@ const Checkbox = forwardRef<Ref, Props>(
           ref={ref}
         />
         <span className={style.custom}></span>
+        {value}
       </label>
     );
   }
