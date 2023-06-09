@@ -1,5 +1,5 @@
 import { FC, useMemo } from "react";
-import Input from "../../UI/input/input";
+import BaseInput from "../../base-input/base-input";
 import Select from "../../UI/select/select";
 import style from "./first-tab.module.css";
 import { useFormContext, Controller } from "react-hook-form";
@@ -21,21 +21,21 @@ const FirstTab: FC = () => {
         control={control}
         name="field-nickname"
         render={({ field }) => (
-          <Input label="Nickname" placeholder="Placeholder" {...field} />
+          <BaseInput label="Nickname" placeholder="Placeholder" {...field} />
         )}
       />
       <Controller
         control={control}
         name="field-name"
         render={({ field }) => (
-          <Input label="Name" placeholder="Placeholder" {...field} />
+          <BaseInput label="Name" placeholder="Placeholder" {...field} />
         )}
       />
       <Controller
         control={control}
         name="field-sername"
         render={({ field }) => (
-          <Input label="Sername" placeholder="Placeholder" {...field} />
+          <BaseInput label="Sername" placeholder="Placeholder" {...field} />
         )}
       />
       <Controller

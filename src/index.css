@@ -17,6 +17,7 @@ body {
   --text-color-white: #ffffff;
   --text-color-black-alpha-48: rgba(0, 0, 0, 0.48);
   --text-color-accent: #5558fa;
+  --text-color-error: #e84e58;
 
   --bg-color-main: #f4f4f5;
   --bg-color-white: #ffffff;
