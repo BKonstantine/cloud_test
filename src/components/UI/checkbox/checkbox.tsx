@@ -2,19 +2,19 @@ import { forwardRef, ChangeEvent, FocusEvent, HTMLProps } from "react";
 import style from "./checkbox.module.css";
 
 interface Props extends HTMLProps<HTMLInputElement> {
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  onBlur: (event: FocusEvent<HTMLInputElement>) => void;
-  value: number;
-  name: string;
-  inputSize?: "small" | "large";
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  value?: number;
+  name?: string;
+  id?: string;
 }
 
 type Ref = HTMLInputElement;
 
 const Checkbox = forwardRef<Ref, Props>(
-  ({ onChange, onBlur, value = "", name, ...rest }, ref) => {
+  ({ id, onChange, onBlur, value, name, ...rest }, ref) => {
     return (
-      <label htmlFor="checkbox">
+      <label htmlFor={`${id}checkbox`}>
         <input
           {...rest}
           className={style.real}
@@ -23,7 +23,7 @@ const Checkbox = forwardRef<Ref, Props>(
           value={value}
           type="checkbox"
           name={name}
-          id="checkbox"
+          id={`${id}checkbox`}
           ref={ref}
         />
         <span className={style.custom}></span>

@@ -11,8 +11,18 @@ const SecondTab: FC = () => {
       <Controller
         control={control}
         name="field-checkbox-group-option-1"
-        render={({ field }) => <Checkbox {...field} />}
-      />      
+        render={({ field }) => <Checkbox {...field} id="1" />}
+      />
+      <Controller
+        control={control}
+        name="field-checkbox-group-option-2"
+        render={({ field }) => <Checkbox {...field} id="2" />}
+      />
+      <Controller
+        control={control}
+        name="field-checkbox-group-option-3"
+        render={({ field }) => <Checkbox {...field} id="3" />}
+      />
     </fieldset>
   );
 };
