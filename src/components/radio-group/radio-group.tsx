@@ -24,6 +24,7 @@ const RadioGroup: FC<Props> = ({ label }) => {
             <Controller
               render={({ field: { onChange, value, ...rest } }) => (
                 <Radio
+                  checked={value === index + 1}
                   id={String(index)}
                   onChange={(e) => {
                     onChange(e.target.checked ? Number(e.target.value) : null);
