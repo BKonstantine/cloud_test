@@ -5,8 +5,7 @@ interface Props extends HTMLProps<HTMLTextAreaElement> {
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onBlur: (event: FocusEvent<HTMLTextAreaElement>) => void;
   value: string;
-  name: string;
-  inputSize?: "small" | "large";
+  name: string;  
 }
 
 type Ref = HTMLTextAreaElement;
