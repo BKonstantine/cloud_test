@@ -1,5 +1,5 @@
 .textarea {
-  box-sizing: border-box;
+  box-sizing: border-box;  
   min-height: 84px;
   padding: 12px;
   border: 1px solid var(--border-color-black-alpha-16);
@@ -17,4 +17,10 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--text-color-black-alpha-48);
+}
+
+.textarea::-webkit-resizer {
+  background-image: url(../../../icons/resize-icon.svg); 
+  background-repeat: no-repeat;
+  background-position: center;
 }

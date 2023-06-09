@@ -5,7 +5,7 @@ interface Props extends HTMLProps<HTMLTextAreaElement> {
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onBlur: (event: FocusEvent<HTMLTextAreaElement>) => void;
   value: string;
-  name: string;  
+  name: string;
 }
 
 type Ref = HTMLTextAreaElement;
@@ -14,7 +14,7 @@ const Textarea = forwardRef<Ref, Props>(
   ({ onChange, onBlur, value = "", name, ...rest }, ref) => {
     return (
       <textarea
-        className={style.textarea}        
+        className={style.textarea}
         onChange={onChange}
         onBlur={onBlur}
         value={value}
