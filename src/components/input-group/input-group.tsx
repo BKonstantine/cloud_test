@@ -1,5 +1,7 @@
 import { FC } from "react";
+import { useFormContext, useFieldArray, Controller } from "react-hook-form";
 import InputLabel from "../UI/input-label/input-label";
+import Input from "../UI/input/input";
 import Button from "../UI/button/button";
 import ButtonRemove from "../UI/button-remove/button-remove";
 import CrossIcon from "../../icons/cross-icon";
@@ -10,13 +12,32 @@ type Props = {
 };
 
 const InputGroup: FC<Props> = ({ label }) => {
+  const { control } = useFormContext();
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "advantages",
+  });
+
   return (
     <div className={style.container}>
       <InputLabel label={label} />
       <ul className={style.list}>
-        <ButtonRemove />
+        {fields.map((item, index) => (
+          <li className={style.item} key={item.id}>
+            <Controller
+              render={({ field }) => (
+                <>
+                  <Input placeholder="Placeholder" {...field} />
+                  <ButtonRemove onClick={() => remove(index)}/>
+                </>
+              )}
+              name={`field-advantages-${index + 1}`}
+              control={control}
+            />
+          </li>
+        ))}
       </ul>
-      <Button color="secondary" buttonSize="small">
+      <Button color="secondary" buttonSize="small" onClick={() => append("")}>
         <CrossIcon />
       </Button>
     </div>

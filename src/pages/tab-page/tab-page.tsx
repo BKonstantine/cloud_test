@@ -20,6 +20,7 @@ const TabPage: FC = () => {
     defaultValues: {
       checkboxes: [1, 2, 3],
       radios: [1, 2, 3],
+      advantages: []
     },
   });
 
