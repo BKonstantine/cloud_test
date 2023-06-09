@@ -24,9 +24,10 @@ const CheckboxGroup: FC<Props> = ({ label }) => {
             <Controller
               render={({ field: { onChange, value, ...rest } }) => (
                 <Checkbox
+                  checked={value || false}
                   id={String(index)}
                   onChange={(e) => {
-                    onChange(e.target.checked ? Number(e.target.value) : null);
+                    onChange(e.target.checked ? Number(e.target.value) : undefined);
                   }}
                   label={String(index + 1)}
                   value={index + 1}
