@@ -7,7 +7,7 @@ const SecondTab: FC = () => {
   const { control } = useFormContext();
 
   return (
-    <div className={style.tab}>
+    <fieldset className={style.tab}>
       <Controller
         control={control}
         name="Firstname2"
@@ -23,7 +23,7 @@ const SecondTab: FC = () => {
         name="Fullname2"
         render={({ field }) => <Input label="Fullname2" {...field} />}
       />
-    </div>
+    </fieldset>
   );
 };
 
