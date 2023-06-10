@@ -26,6 +26,7 @@ body {
   --bg-color-icon: #d5e4f7;
   --bg-color-black-alpha-4: rgba(0, 0, 0, 0.04);
   --bg-color-black-alpha-8: rgba(0, 0, 0, 0.08);
+  --bg-color-black-alpha-16: rgba(0, 0, 0, 0.16);
 
   --border-color-accent: #5558fa;
   --border-color-black-alpha-8: rgba(0, 0, 0, 0.08);
