@@ -1,5 +1,5 @@
 export interface FormData {
-  [fieldName: string]: string | number[];
+  [fieldName: string]: string | number[] | string[];
 }
 
 const checkResponse = (res: Response) => {
