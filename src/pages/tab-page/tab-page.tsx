@@ -9,6 +9,7 @@ import ThirdTab from "../../components/tabs/third-tab/third-tab";
 import ModalOverlay from "../../components/modal-overlay/modal-overlay";
 import Modal from "../../components/modal/modal";
 import style from "./tab-page.module.css";
+import { sendRequest } from "../../api/api";
 
 interface FormData {
   [fieldName: string]: string | number[];
@@ -16,6 +17,7 @@ interface FormData {
 
 const TabPage: FC = () => {
   const [step, setStep] = useState(1);
+  const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
@@ -26,7 +28,11 @@ const TabPage: FC = () => {
     },
   });
 
-  const onSubmit = methods.handleSubmit((data) => console.log(data));
+  const onSubmit = methods.handleSubmit((data) => {
+    sendRequest(data)
+      .then((res) => setResult(res.status))
+      .catch(() => setResult("error"));
+  });
   const onClick = (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setStep(step);
@@ -60,11 +66,11 @@ const TabPage: FC = () => {
           </form>
         </FormProvider>
       </div>
-      {
+      {result && (
         <ModalOverlay>
-          <Modal result="succes" />
+          <Modal result={result} />
         </ModalOverlay>
-      }
+      )}
     </>
   );
 };
