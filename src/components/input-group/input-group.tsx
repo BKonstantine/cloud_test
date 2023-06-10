@@ -28,16 +28,20 @@ const InputGroup: FC<Props> = ({ label }) => {
               render={({ field }) => (
                 <>
                   <Input placeholder="Placeholder" {...field} />
-                  <ButtonRemove onClick={() => remove(index)}/>
+                  <ButtonRemove onClick={() => remove(index)} />
                 </>
               )}
-              name={`field-advantages-${index + 1}`}
+              name={`advantages[${index}].advantage`}
               control={control}
             />
           </li>
         ))}
       </ul>
-      <Button color="secondary" buttonSize="small" onClick={() => append("")}>
+      <Button
+        color="secondary"
+        buttonSize="small"
+        onClick={() => append({ advantage: "" })}
+      >
         <CrossIcon />
       </Button>
     </div>
