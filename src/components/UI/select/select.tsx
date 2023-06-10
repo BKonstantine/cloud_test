@@ -26,11 +26,7 @@ const Select: FC<Props> = ({
         onChange={onChange}
         options={options}
         placeholder={placeholder}
-        styles={{
-          container: (style) => ({
-            ...style,
-            maxWidth: "300px",
-          }),
+        styles={{          
           indicatorSeparator: (style) => ({
             ...style,
             display: "none",

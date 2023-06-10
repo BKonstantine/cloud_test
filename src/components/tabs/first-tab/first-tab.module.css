@@ -4,5 +4,12 @@
   border: none;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
   gap: 24px;
+}
+
+@media screen and (max-width: 600px) {
+  .tab {
+    max-width: 100%;
+  }
 }

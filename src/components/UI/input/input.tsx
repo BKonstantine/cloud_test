@@ -6,17 +6,13 @@ interface Props extends HTMLProps<HTMLInputElement> {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (event: FocusEvent<HTMLInputElement>) => void;
   value: string;
-  name: string;  
-  inputSize?: "small" | "large";
+  name: string;
 }
 
 type Ref = HTMLInputElement;
 
 const Input = forwardRef<Ref, Props>(
-  (
-    { inputSize = "small", onChange, onBlur, value = "", name, ...rest },
-    ref
-  ) => (
+  ({ onChange, onBlur, value = "", name, ...rest }, ref) => (
     <input
       {...rest}
       id={name}
@@ -25,10 +21,7 @@ const Input = forwardRef<Ref, Props>(
       name={name}
       onChange={onChange}
       onBlur={onBlur}
-      className={cn(
-        style.input,
-        inputSize === "small" ? style.input_size_small : style.input_size_large
-      )}
+      className={cn(style.input)}
     />
   )
 );

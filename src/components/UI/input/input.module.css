@@ -12,14 +12,6 @@
   color: var(--text-color-black);
 }
 
-.input_size_small {
-  max-width: 300px;
-}
-
-.input_size_large {
-  max-width: 400px;
-}
-
 .input::placeholder {
   font-family: "SB Sans Interface", sans-serif;
   font-weight: 400;
