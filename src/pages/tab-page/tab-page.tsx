@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, MouseEvent } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Steps from "../../components/UI/steps/steps";
 import ButtonLink from "../../components/UI/button-link/button-link";
@@ -13,19 +13,20 @@ interface FormData {
 }
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
     defaultValues: {
       checkboxes: [1, 2, 3],
       radios: [1, 2, 3],
-      advantages: []
+      advantages: [],
     },
   });
 
   const onSubmit = methods.handleSubmit((data) => console.log(data));
-  const onClick = (step: number) => {
+  const onClick = (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     setStep(step);
   };
 
@@ -41,7 +42,7 @@ const TabPage: FC = () => {
                 Назад
               </ButtonLink>
             ) : (
-              <Button onClick={() => onClick(step - 1)} color="secondary">
+              <Button onClick={onClick(step - 1)} color="secondary">
                 {step === 2 ? "Back" : "Назад"}
               </Button>
             )}
@@ -50,7 +51,7 @@ const TabPage: FC = () => {
                 Отправить
               </Button>
             ) : (
-              <Button onClick={() => onClick(step + 1)}>Вперед</Button>
+              <Button onClick={onClick(step + 1)}>Вперед</Button>
             )}
           </div>
         </form>
