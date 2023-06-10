@@ -6,6 +6,8 @@ import Button from "../../components/UI/button/button";
 import FirstTab from "../../components/tabs/first-tab/first-tab";
 import SecondTab from "../../components/tabs/second-tab/second-tab";
 import ThirdTab from "../../components/tabs/third-tab/third-tab";
+import ModalOverlay from "../../components/modal-overlay/modal-overlay";
+import Modal from "../../components/modal/modal";
 import style from "./tab-page.module.css";
 
 interface FormData {
@@ -31,32 +33,39 @@ const TabPage: FC = () => {
   };
 
   return (
-    <div className={style.tabs}>
-      <Steps step={step} className={style.tabs__steps} />
-      <FormProvider {...methods}>
-        <form onSubmit={onSubmit}>
-          {tabs[step - 1]}
-          <div className={style.tabs__buttons}>
-            {step === 1 ? (
-              <ButtonLink to="/" color="secondary">
-                Назад
-              </ButtonLink>
-            ) : (
-              <Button onClick={onClick(step - 1)} color="secondary">
-                {step === 2 ? "Back" : "Назад"}
-              </Button>
-            )}
-            {step === 3 ? (
-              <Button type="submit" buttonSize="large">
-                Отправить
-              </Button>
-            ) : (
-              <Button onClick={onClick(step + 1)}>Вперед</Button>
-            )}
-          </div>
-        </form>
-      </FormProvider>
-    </div>
+    <>
+      <div className={style.tabs}>
+        <Steps step={step} className={style.tabs__steps} />
+        <FormProvider {...methods}>
+          <form onSubmit={onSubmit}>
+            {tabs[step - 1]}
+            <div className={style.tabs__buttons}>
+              {step === 1 ? (
+                <ButtonLink to="/" color="secondary">
+                  Назад
+                </ButtonLink>
+              ) : (
+                <Button onClick={onClick(step - 1)} color="secondary">
+                  {step === 2 ? "Back" : "Назад"}
+                </Button>
+              )}
+              {step === 3 ? (
+                <Button type="submit" buttonSize="large">
+                  Отправить
+                </Button>
+              ) : (
+                <Button onClick={onClick(step + 1)}>Вперед</Button>
+              )}
+            </div>
+          </form>
+        </FormProvider>
+      </div>
+      {
+        <ModalOverlay>
+          <Modal result="success" />
+        </ModalOverlay>
+      }
+    </>
   );
 };
 
