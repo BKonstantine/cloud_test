@@ -1,4 +1,4 @@
-import { FC, useState, MouseEvent } from "react";
+import { FC, useState, MouseEvent, useCallback } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Steps from "../../components/UI/steps/steps";
 import ButtonLink from "../../components/UI/button-link/button-link";
@@ -10,10 +10,7 @@ import ModalOverlay from "../../components/modal-overlay/modal-overlay";
 import Modal from "../../components/modal/modal";
 import style from "./tab-page.module.css";
 import { sendRequest } from "../../api/api";
-
-interface FormData {
-  [fieldName: string]: string | number[];
-}
+import { FormData } from "../../api/api";
 
 const TabPage: FC = () => {
   const [step, setStep] = useState(1);
@@ -28,15 +25,26 @@ const TabPage: FC = () => {
     },
   });
 
-  const onSubmit = methods.handleSubmit((data) => {
-    sendRequest(data)
-      .then((res) => setResult(res.status))
-      .catch(() => setResult("error"));
-  });
-  const onClick = (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    setStep(step);
-  };
+  const onSubmit = useCallback(
+    methods.handleSubmit((data) => {
+      sendRequest(data)
+        .then((res) => setResult(res.status))
+        .catch(() => setResult("error"));
+    }),
+    [methods]
+  );
+
+  const onClick = useCallback(
+    (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      setStep(step);
+    },
+    []
+  );
+
+  const onClose = useCallback(() => {
+    setResult("");
+  }, []);
 
   return (
     <>
@@ -68,7 +76,7 @@ const TabPage: FC = () => {
       </div>
       {result && (
         <ModalOverlay>
-          <Modal result={result} />
+          <Modal result={`result`} onClose={onClose} />
         </ModalOverlay>
       )}
     </>

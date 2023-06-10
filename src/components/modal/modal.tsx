@@ -4,10 +4,19 @@ import ModalError from "./modal-error/modal-error";
 
 type Props = {
   result: string;
+  onClose: () => void;
 };
 
-const Modal: FC<Props> = ({ result }) => {
-  return <>{result === "success" ? <ModalSuccess /> : <ModalError />}</>;
+const Modal: FC<Props> = ({ result, onClose }) => {
+  return (
+    <>
+      {result === "success" ? (
+        <ModalSuccess />
+      ) : (
+        <ModalError onClose={onClose} />
+      )}
+    </>
+  );
 };
 
 export default Modal;
