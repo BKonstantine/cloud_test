@@ -44,6 +44,11 @@
   font-size: 40px;
   line-height: 52px;
   border-radius: 100px;
+  cursor: default;
+}
+
+.profile__icon:hover {
+  background-color: var(--bg-color-icon-hover);
 }
 
 .profile__name {

@@ -12,3 +12,7 @@
   font-size: 12px;
   line-height: 16px;
 }
+
+.link:hover {
+  color: var(--text-color-accent-hover);
+}

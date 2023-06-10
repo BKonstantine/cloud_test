@@ -39,6 +39,11 @@
   content: "";
 }
 
+.custom:hover::before {
+  background-color: var(--bg-color-accent-hover);
+  border: 1.5px solid var(--border-color-accent-hover);
+}
+
 .real:checked + .custom::before {
   opacity: 1;
 }

@@ -17,18 +17,22 @@ body {
   --text-color-white: #ffffff;
   --text-color-black-alpha-48: rgba(0, 0, 0, 0.48);
   --text-color-accent: #5558fa;
+  --text-color-accent-hover: #4244c4;
   --text-color-error: #e84e58;
 
   --bg-color-main: #f4f4f5;
   --bg-color-white: #ffffff;
   --bg-color-accent: #5558fa;
+  --bg-color-accent-hover: #4244c4;
   --bg-color-grey: #a6a6a6;
   --bg-color-icon: #d5e4f7;
+  --bg-color-icon-hover: #bbc8d8;
   --bg-color-black-alpha-4: rgba(0, 0, 0, 0.04);
   --bg-color-black-alpha-8: rgba(0, 0, 0, 0.08);
   --bg-color-black-alpha-16: rgba(0, 0, 0, 0.16);
 
   --border-color-accent: #5558fa;
+  --border-color-accent-hover: #4244c4;
   --border-color-black-alpha-8: rgba(0, 0, 0, 0.08);
   --border-color-black-alpha-16: rgba(0, 0, 0, 0.16);
   --border-color-black-alpha-24: rgba(0, 0, 0, 0.24);

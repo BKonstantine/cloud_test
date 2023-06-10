@@ -76,7 +76,7 @@ const TabPage: FC = () => {
       </div>
       {result && (
         <ModalOverlay>
-          <Modal result={`result`} onClose={onClose} />
+          <Modal result={result} onClose={onClose} />
         </ModalOverlay>
       )}
     </>

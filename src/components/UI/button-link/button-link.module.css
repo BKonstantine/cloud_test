@@ -10,7 +10,7 @@
   min-width: 44px;
   height: 44px;
   border-radius: 4px;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 .button_size_small {
@@ -26,8 +26,17 @@
   color: var(--text-color-white);
 }
 
+.button_color_primary:hover {
+  background-color: var(--bg-color-accent-hover);
+}
+
 .button_color_secondary {
   background-color: var(--bg-color-white);
   color: var(--text-color-accent);
   border: 1.5px solid var(--border-color-accent);
+}
+
+.button_color_secondary:hover {
+  color: var(--text-color-accent-hover);
+  border: 1.5px solid var(--border-color-accent-hover);
 }
