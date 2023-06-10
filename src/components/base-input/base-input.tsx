@@ -10,14 +10,13 @@ interface Props extends HTMLProps<HTMLInputElement> {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (event: FocusEvent<HTMLInputElement>) => void;
   value: string;
-  name: string;
-  inputSize?: "small" | "large";
+  name: string;  
 }
 
 type Ref = HTMLInputElement;
 
 const BaseInput = forwardRef<Ref, Props>((props, ref) => {
-  const { label, error, onChange, onBlur, value, name, inputSize, ...rest } =
+  const { label, error, onChange, onBlur, value, name,  ...rest } =
     props;
 
   return (
@@ -28,8 +27,7 @@ const BaseInput = forwardRef<Ref, Props>((props, ref) => {
         name={name}
         onBlur={onBlur}
         onChange={onChange}
-        value={value}
-        inputSize={inputSize}
+        value={value}        
         ref={ref}
       />
       {error && <InputError error={error} />}

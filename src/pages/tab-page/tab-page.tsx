@@ -27,6 +27,7 @@ const TabPage: FC = () => {
 
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {
+      console.log(data);
       sendRequest(data)
         .then((res) => setResult(res.status))
         .catch(() => setResult("error"));
