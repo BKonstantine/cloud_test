@@ -1,13 +1,11 @@
-import { FC, HTMLProps, ReactNode, memo } from "react";
+import { ButtonHTMLAttributes, FC, ReactNode, memo } from "react";
 import cn from "classnames";
 import style from "./button.module.css";
 
-type ButtonType = "button" | "submit" | "reset";
 type ButtonSize = "small" | "middle" | "large";
 type ButtonColor = "primary" | "secondary";
 
-interface Props extends HTMLProps<HTMLButtonElement> {
-  type?: ButtonType;
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonSize?: ButtonSize;
   color?: ButtonColor;
   children: ReactNode;
