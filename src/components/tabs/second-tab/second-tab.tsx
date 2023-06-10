@@ -5,10 +5,12 @@ import RadioGroup from "../../radio-group/radio-group";
 import style from "./second-tab.module.css";
 
 const SecondTab: FC = () => {
+  const array = [1, 2, 3];
+
   return (
     <fieldset className={style.tab}>
-      <InputGroup label="Advantages" />      
-      <CheckboxGroup label="Checkbox group" />
+      <InputGroup label="Advantages" />
+      <CheckboxGroup label="Checkbox group" array={array} name="checkboxes" />
       <RadioGroup label="Radio group" />
     </fieldset>
   );

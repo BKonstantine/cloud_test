@@ -13,13 +13,13 @@ import { sendRequest } from "../../api/api";
 import { FormData } from "../../api/api";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
     defaultValues: {
-      checkboxes: [1, 2, 3],
+      checkboxes: [],
       radios: [1, 2, 3],
       advantages: [],
     },
@@ -37,7 +37,7 @@ const TabPage: FC = () => {
 
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
+      /* event.preventDefault(); */
       setStep(step);
     },
     []
@@ -75,7 +75,7 @@ const TabPage: FC = () => {
           </form>
         </FormProvider>
       </div>
-      {result && (
+      {false && (
         <ModalOverlay>
           <Modal result={result} onClose={onClose} />
         </ModalOverlay>
