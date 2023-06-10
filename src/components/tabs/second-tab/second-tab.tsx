@@ -11,7 +11,7 @@ const SecondTab: FC = () => {
     <fieldset className={style.tab}>
       <InputGroup label="Advantages" name="advantages"/>
       <CheckboxGroup label="Checkbox group" array={array} name="checkboxes" />
-      <RadioGroup label="Radio group" />
+      <RadioGroup label="Radio group" array={array} name="radio"/>
     </fieldset>
   );
 };
