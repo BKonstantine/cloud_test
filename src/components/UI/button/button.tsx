@@ -9,10 +9,12 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonSize?: ButtonSize;
   color?: ButtonColor;
   children: ReactNode;
+  className?: string;
 }
 
 const Button: FC<Props> = memo(
   ({
+    className,
     type = "button",
     buttonSize = "middle",
     color = "primary",
@@ -24,6 +26,7 @@ const Button: FC<Props> = memo(
         type={type}
         className={cn(
           style.button,
+          className,
           buttonSize === "small"
             ? style.button_size_small
             : buttonSize === "middle"

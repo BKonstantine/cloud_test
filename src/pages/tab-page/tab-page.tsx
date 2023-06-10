@@ -62,7 +62,7 @@ const TabPage: FC = () => {
       </div>
       {
         <ModalOverlay>
-          <Modal result="success" />
+          <Modal result="succes" />
         </ModalOverlay>
       }
     </>

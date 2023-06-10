@@ -3,7 +3,7 @@ import ModalSuccess from "./modal-success/modal-success";
 import ModalError from "./modal-error/modal-error";
 
 type Props = {
-  result: "success";
+  result: string;
 };
 
 const Modal: FC<Props> = ({ result }) => {
