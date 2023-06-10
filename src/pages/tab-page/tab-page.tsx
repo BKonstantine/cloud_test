@@ -19,9 +19,9 @@ const TabPage: FC = () => {
 
   const methods = useForm<FormData>({
     defaultValues: {
+      advantages: [],
       checkboxes: [],
       radios: [1, 2, 3],
-      advantages: [],
     },
   });
 

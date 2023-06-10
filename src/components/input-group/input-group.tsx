@@ -9,13 +9,14 @@ import style from "./input-group.module.css";
 
 type Props = {
   label: string;
+  name: string;
 };
 
-const InputGroup: FC<Props> = ({ label }) => {
+const InputGroup: FC<Props> = ({ label, name }) => {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "advantages",
+    name,
   });
 
   return (
@@ -31,17 +32,13 @@ const InputGroup: FC<Props> = ({ label }) => {
                   <ButtonRemove onClick={() => remove(index)} />
                 </>
               )}
-              name={`advantages[${index}].advantage`}
+              name={`advantages[${index}]`}
               control={control}
             />
           </li>
         ))}
       </ul>
-      <Button
-        color="secondary"
-        buttonSize="small"
-        onClick={() => append({ advantage: "" })}
-      >
+      <Button color="secondary" buttonSize="small" onClick={() => append("")}>
         <CrossIcon />
       </Button>
     </div>
