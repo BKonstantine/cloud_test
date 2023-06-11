@@ -15,30 +15,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
-    mode: "onTouched",
     resolver: yupResolver(schema),
   });
 
   const formState = methods.formState;
   const isValid = formState.isValid;
   const trigger = methods.trigger;
-
   const firstTabFileds = ["nickname", "name", "sername", "sex"];
   const secondTabFields = ["advantages", "checkbox", "radio"];
   const thirdTabFileds = ["about"];
-  const dirtyFields = Object.keys(formState.dirtyFields);
-  const errorFileds = Object.keys(formState.errors);
-
-  const checkValidTab = () => {
-    return dirtyFields.some((field) => {
-      return errorFileds.some((error) => error === field);
-    });
-  };
 
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {
@@ -49,14 +39,11 @@ const TabPage: FC = () => {
     }),
     [methods]
   );
-  
-  console.log(formState.errors);
 
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      trigger(secondTabFields)
-      /* setStep(step); */
+      setStep(step);
     },
     []
   );
@@ -83,10 +70,7 @@ const TabPage: FC = () => {
                 </Button>
               )}
               {step === 3 ? (
-                <Button
-                  type="submit"
-                  buttonSize="large" /*  disabled={!isValid} */
-                >
+                <Button type="submit" buttonSize="large" disabled={!isValid}>
                   Отправить
                 </Button>
               ) : (

@@ -19,16 +19,13 @@ export const schema = Yup.object()
 
     sex: Yup.object().required("Обязательное поле"),
 
-    advantages: Yup.array()
-      .of(Yup.string().trim().min(1, "Поле не может быть пустым")),      
-
-    /* radio: Yup.number().required("Обязательное поле"),
-  
-    checkbox: Yup.array().of(Yup.number()).required("Обязательное поле"), */
+    advantages: Yup.array().of(
+      Yup.string().trim().min(1, "Поле не может быть пустым")
+    ),
 
     about: Yup.string()
       .max(200, "Максимальная длина 200 символов")
       .matches(/^\S*$/, "Пробелы не допускаются")
       .required("Обязательное поле"),
   })
-  .required();
+  .required("Обязательное поле");
