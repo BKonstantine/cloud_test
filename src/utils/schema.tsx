@@ -19,10 +19,10 @@ export const schema = Yup.object()
 
     sex: Yup.object().required("Обязательное поле"),
 
-    /* advantages: Yup.array()
+    advantages: Yup.array()
       .of(Yup.string().trim().min(1, "Поле не может быть пустым"))
       .min(1, "Хотя бы одно преимущество должно быть указано")
-      .required("Обязательное поле"), */
+      .required("Обязательное поле"),
 
     /* radio: Yup.number().required("Обязательное поле"),
   

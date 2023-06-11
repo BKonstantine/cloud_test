@@ -1,4 +1,4 @@
-import { FC, useState, MouseEvent, useCallback, useEffect } from "react";
+import { FC, useState, MouseEvent, useCallback } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Steps from "../../components/UI/steps/steps";
 import ButtonLink from "../../components/UI/button-link/button-link";
@@ -15,17 +15,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
-    /* defaultValues: {
-      advantages: [],
-      checkbox: [],
-      radio: []
-    }, */
-    mode: "onChange",
+    mode: "onTouched",
     resolver: yupResolver(schema),
   });
 
@@ -53,18 +48,13 @@ const TabPage: FC = () => {
     }),
     [methods]
   );
-
-  console.log(formState.errors);
+/* 
+  console.log(formState.errors); */
 
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      trigger(firstTabFileds);
-      /* if (checkValidTab()) {
-        trigger(dirtyFields);
-      } else {
-        setStep(step);
-      } */
+      setStep(step);
     },
     []
   );
@@ -91,7 +81,7 @@ const TabPage: FC = () => {
                 </Button>
               )}
               {step === 3 ? (
-                <Button type="submit" buttonSize="large" disabled={!isValid}>
+                <Button type="submit" buttonSize="large"/*  disabled={!isValid} */>
                   Отправить
                 </Button>
               ) : (

@@ -4,7 +4,6 @@ import CheckboxGroup from "../../checkbox-group/checkbox-group";
 import RadioGroup from "../../radio-group/radio-group";
 import style from "./second-tab.module.css";
 import { useFormContext } from "react-hook-form";
-import { getErrorMessages } from "../../../utils/get-error";
 
 const SecondTab: FC = () => {
   const array = [1, 2, 3];
@@ -17,7 +16,7 @@ const SecondTab: FC = () => {
       <InputGroup
         label="Advantages"
         name="advantages"
-        error={getErrorMessages(errors, "advantages")}
+        error={errors}
       />
       <CheckboxGroup label="Checkbox group" array={array} name="checkbox" />
       <RadioGroup label="Radio group" array={array} name="radio" />

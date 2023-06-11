@@ -11,7 +11,7 @@ import style from "./input-group.module.css";
 type Props = {
   label: string;
   name: string;
-  error?: string;
+  error?: any;
 };
 
 const InputGroup: FC<Props> = ({ label, name, error }) => {
@@ -20,7 +20,7 @@ const InputGroup: FC<Props> = ({ label, name, error }) => {
     control,
     name,
   });
-
+ 
   return (
     <div className={style.container}>
       <InputLabel label={label} />
@@ -34,7 +34,7 @@ const InputGroup: FC<Props> = ({ label, name, error }) => {
                     <Input placeholder="Placeholder" {...field} />
                     <ButtonRemove onClick={() => remove(index)} />
                   </div>
-                  {error?.[index] && <InputError error={error[index]} />}
+                  {error?.[name]?.[index]?.message && <InputError error={error?.[name]?.[index]?.message} />}
                 </>
               )}
               name={`${name}[${index}]`}

@@ -11,10 +11,3 @@ export const getError = (
   }
   return "";
 };
-
-export const getErrorMessages = (errors: any, key: any) => {
-  if (!errors || !errors[key]) {
-    return [];
-  }
-  return errors[key] && errors[key].map((error: any) => error.message);
-};
