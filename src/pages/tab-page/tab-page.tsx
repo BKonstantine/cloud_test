@@ -15,7 +15,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
@@ -30,7 +30,19 @@ const TabPage: FC = () => {
   });
 
   const formState = methods.formState;
-  console.log(formState.errors); 
+  const isValid = formState.isValid;
+  const trigger = methods.trigger;
+
+  const firstTabFileds = ["nickname", "name", "sername", "sex"];
+  const thirdTabFileds = ["about"];
+  const dirtyFields = Object.keys(formState.dirtyFields);
+  const errorFileds = Object.keys(formState.errors);
+
+  const checkValidTab = () => {
+    return dirtyFields.some((field) => {
+      return errorFileds.some((error) => error === field);
+    });
+  };
 
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {
@@ -42,10 +54,17 @@ const TabPage: FC = () => {
     [methods]
   );
 
+  console.log(formState.errors);
+
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      setStep(step);
+      trigger(firstTabFileds);
+      /* if (checkValidTab()) {
+        trigger(dirtyFields);
+      } else {
+        setStep(step);
+      } */
     },
     []
   );
@@ -72,16 +91,11 @@ const TabPage: FC = () => {
                 </Button>
               )}
               {step === 3 ? (
-                <Button type="submit" buttonSize="large">
+                <Button type="submit" buttonSize="large" disabled={!isValid}>
                   Отправить
                 </Button>
               ) : (
-                <Button
-                  onClick={onClick(step + 1)}
-                  disabled={!formState.isValid}
-                >
-                  Вперед
-                </Button>
+                <Button onClick={onClick(step + 1)}>Вперед</Button>
               )}
             </div>
           </form>
