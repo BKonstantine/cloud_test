@@ -15,7 +15,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [tab, setTab] = useState(2);
+  const [tab, setTab] = useState(1);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
@@ -41,6 +41,8 @@ const TabPage: FC = () => {
     });
   };
 
+  console.log(checkValidTab(secondTabFields));
+
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {
       console.log(data);
@@ -51,20 +53,30 @@ const TabPage: FC = () => {
     [methods]
   );
 
+  const checkFirstTab = (currentTab: number, step: number) => {
+    if (currentTab === 1 && checkValidTab(firstTabFileds)) {
+      setTab(step);
+    } else {
+      trigger(firstTabFileds);
+    }
+  };
+
+  const checkSecondTab = (currentTab: number, step: number) => {
+    if (currentTab === 2 && checkValidTab(secondTabFields)) {
+      setTab(step);
+    } else {
+      trigger(secondTabFields);
+    }
+  };
+
   const onClickWithValid = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      if (tab === 1 && checkValidTab(firstTabFileds)) {
-        setTab(step);
+      if (tab === 1) {
+        checkFirstTab(tab, step);
       } else {
-        trigger(firstTabFileds);
-      }
-
-      if (tab === 2 && checkValidTab(secondTabFields)) {
-        setTab(step);
-      } else {
-        trigger(secondTabFields);
-      }
+        checkSecondTab(tab, step);
+      }      
     },
     [dirtyFields, errorFields, tab]
   );
@@ -109,7 +121,7 @@ const TabPage: FC = () => {
           </form>
         </FormProvider>
       </div>
-      {false && (
+      {result && (
         <ModalOverlay>
           <Modal result={result} onClose={onClose} />
         </ModalOverlay>
