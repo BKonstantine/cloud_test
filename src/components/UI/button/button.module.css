@@ -45,3 +45,9 @@
   color: var(--text-color-accent-hover);
   border: 1.5px solid var(--border-color-accent-hover);
 }
+
+.button_color_primary:disabled {
+  background-color: var(--bg-color-accent);
+  opacity: 0.7;
+  cursor: default;
+}

@@ -1,46 +1,51 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useEffect } from "react";
 import BaseInput from "../../base-input/base-input";
 import Select from "../../UI/select/select";
 import style from "./first-tab.module.css";
 import { useFormContext, Controller } from "react-hook-form";
 
 const FirstTab: FC = () => {
-  const { control } = useFormContext();
+  const { control, formState, trigger } = useFormContext();
 
   const options = useMemo(
     () => [
-      { value: "field-sex-option-man", label: "man" },
-      { value: "field-sex-option-woman", label: "woman" },
+      { value: "man", label: "man" },
+      { value: "woman", label: "woman" },
     ],
     []
   );
+
+  useEffect(() => {
+    const arrayFields = Object.keys(formState.dirtyFields);
+    trigger(arrayFields);
+  }, [formState.touchedFields]);
 
   return (
     <fieldset className={style.tab}>
       <Controller
         control={control}
-        name="field-nickname"
+        name="nickname"
         render={({ field }) => (
           <BaseInput label="Nickname" placeholder="Placeholder" {...field} />
         )}
       />
       <Controller
         control={control}
-        name="field-name"
+        name="name"
         render={({ field }) => (
           <BaseInput label="Name" placeholder="Placeholder" {...field} />
         )}
       />
       <Controller
         control={control}
-        name="field-sername"
+        name="sername"
         render={({ field }) => (
           <BaseInput label="Sername" placeholder="Placeholder" {...field} />
         )}
       />
       <Controller
         control={control}
-        name="field-sex"
+        name="sex"
         render={({ field: { value, onChange } }) => (
           <Select
             placeholder="Не выбрано"

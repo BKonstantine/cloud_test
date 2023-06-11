@@ -11,18 +11,26 @@ import Modal from "../../components/modal/modal";
 import style from "./tab-page.module.css";
 import { sendRequest } from "../../api/api";
 import { FormData } from "../../api/api";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
     defaultValues: {
       advantages: [],
-      checkboxes: [],      
+      checkboxes: [],
     },
+    resolver: yupResolver(schema),
   });
+
+  const formState = methods.formState;
+
+  console.log(formState.errors);
+  
 
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {
@@ -36,7 +44,8 @@ const TabPage: FC = () => {
 
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
-      /* event.preventDefault(); */
+      event.preventDefault();
+      methods.trigger();
       setStep(step);
     },
     []
