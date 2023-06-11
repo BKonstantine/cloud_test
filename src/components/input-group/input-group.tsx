@@ -32,7 +32,7 @@ const InputGroup: FC<Props> = ({ label, name }) => {
                   <ButtonRemove onClick={() => remove(index)} />
                 </>
               )}
-              name={`advantages[${index}]`}
+              name={`${name}[${index}]`}
               control={control}
             />
           </li>
