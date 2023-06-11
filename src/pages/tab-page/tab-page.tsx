@@ -15,26 +15,22 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(2);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
-    defaultValues: {
+    /* defaultValues: {
       advantages: [],
-      checkboxes: [],
-    },
+      checkbox: [],
+      radio: []
+    }, */
     mode: "onChange",
     resolver: yupResolver(schema),
   });
 
   const formState = methods.formState;
-  /* const dirtyFields = Object.keys(formState.dirtyFields);
-  console.log(formState.errors);
-  useEffect(() => {
-    methods.trigger(dirtyFields);
-  }, []); */
- 
+  console.log(formState.errors); 
 
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {

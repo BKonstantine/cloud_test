@@ -13,6 +13,12 @@
 }
 
 .item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item__input {
   list-style: none;
   display: flex;
   align-items: center;
