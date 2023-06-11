@@ -41,11 +41,8 @@ const TabPage: FC = () => {
     });
   };
 
-  console.log(checkValidTab(secondTabFields));
-
   const onSubmit = useCallback(
-    methods.handleSubmit((data) => {
-      console.log(data);
+    methods.handleSubmit((data) => {      
       sendRequest(data)
         .then((res) => setResult(res.status))
         .catch(() => setResult("error"));
@@ -76,7 +73,7 @@ const TabPage: FC = () => {
         checkFirstTab(tab, step);
       } else {
         checkSecondTab(tab, step);
-      }      
+      }
     },
     [dirtyFields, errorFields, tab]
   );

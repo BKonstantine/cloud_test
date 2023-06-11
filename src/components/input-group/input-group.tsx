@@ -49,7 +49,11 @@ const InputGroup: FC<Props> = ({ label, name, error }) => {
               </li>
             ))}
       </ul>
-      <Button color="secondary" buttonSize="small" onClick={() => append("")}>
+      <Button
+        color="secondary"
+        buttonSize="small"
+        onClick={() => append("Преимущество")}
+      >
         <CrossIcon />
       </Button>
     </div>
