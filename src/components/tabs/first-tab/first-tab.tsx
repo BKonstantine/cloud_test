@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo } from "react";
+import { FC, useMemo } from "react";
 import BaseInput from "../../base-input/base-input";
 import Select from "../../UI/select/select";
 import style from "./first-tab.module.css";

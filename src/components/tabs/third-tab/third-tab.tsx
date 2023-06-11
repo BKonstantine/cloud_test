@@ -2,25 +2,25 @@ import { FC } from "react";
 import { useFormContext, Controller } from "react-hook-form";
 import BaseTextarea from "../../base-textarea/base-textarea";
 import { checkLength } from "../../../utils/check-length";
+import { getError } from "../../../utils/get-error";
 import style from "./third-tab.module.css";
 
 const ThirdTab: FC = () => {
-  const { control } = useFormContext();
+  const { control, formState } = useFormContext();
+
+  const errors = formState.errors;
 
   return (
     <fieldset className={style.tab}>
       <Controller
         control={control}
-        name="field-about"
-        render={({ field: { value, name, onBlur, onChange, ref } }) => (
+        name="about"
+        render={({ field }) => (
           <BaseTextarea
-            value={value}
-            name={name}
-            onBlur={onBlur}
-            onChange={onChange}
-            ref={ref}
-            counter={checkLength(value)}
+            {...field}
+            counter={checkLength(field.value)}
             label="About"
+            error={getError(errors["about"]?.message)}
           />
         )}
       />

@@ -2,6 +2,7 @@
   box-sizing: border-box;
   min-height: 84px;
   padding: 12px;
+  overflow-y: hidden;
   border: 1px solid var(--border-color-black-alpha-16);
   border-radius: 4px;
   font-weight: 400;

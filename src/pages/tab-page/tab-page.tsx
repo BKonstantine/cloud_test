@@ -15,7 +15,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 

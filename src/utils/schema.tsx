@@ -32,12 +32,11 @@ export const schema = Yup.object()
   
     radio: Yup.number().required("Обязательное поле"),
   
-    checkbox: Yup.array().of(Yup.number()),
-  
+    checkbox: Yup.array().of(Yup.number()),*/
+
     about: Yup.string()
-      .max(200, "Максимальная длина 200 символов без пробелов")
-      .test("no-spaces", "Пробелы не допускаются", (value) => {
-        return /^\S*$/.test(value);
-      }), */
+      .max(200, "Максимальная длина 200 символов")
+      .matches(/^\S*$/, "Пробелы не допускаются")
+      .required("Обязательное поле"),
   })
   .required();
