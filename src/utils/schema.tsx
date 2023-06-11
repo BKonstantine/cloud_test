@@ -1,27 +1,33 @@
 import * as Yup from "yup";
 
-export const schema = Yup.object().shape({
-  nickname: Yup.string()
-    .max(30, "Максимальная длина 30 символов")
-    .matches(/^[a-zA-Z0-9]+$/, "Могут быть только буквы и цифры")
-    .required("Обязательное поле"),
+export const schema = Yup.object()
+  .shape({
+    nickname: Yup.string()
+      .max(30, "Максимальная длина 30 символов")
+      .matches(/^[a-zA-Zа-яА-Я0-9]+$/, "Могут быть только буквы и цифры")
+      .required("Обязательное поле"),
 
-  name: Yup.string()
-    .max(50, "Максимальная длина 50 символов")
-    .matches(/^[a-zA-Z]+$/, "Могут быть только буквы")
-    .required("Обязательное поле"),
+    name: Yup.string()
+      .max(50, "Максимальная длина 50 символов")
+      .matches(/^[a-zA-Zа-яА-Я]+$/, "Могут быть только буквы")
+      .required("Обязательное поле"),
 
-  sername: Yup.string()
-    .max(50, "Максимальная длина 50 символов")
-    .matches(/^[a-zA-Z]+$/, "Могут быть только буквы")
-    .required("Обязательное поле"),
+    sername: Yup.string()
+      .max(50, "Максимальная длина 50 символов")
+      .matches(/^[a-zA-Zа-яА-Я]+$/, "Могут быть только буквы")
+      .required("Обязательное поле"),
 
-  /* sex: Yup.object()
-      .oneOf(["man", "woman"], "Выберите один из вариантов")
-      .required("Обязательное поле"), */
+    sex: Yup.object()
+      .shape({
+        value: Yup.string().oneOf(
+          ["man", "woman"],
+          "Выберите один из вариантов"
+        ),
+        label: Yup.string().required("Обязательное поле"),
+      })
+      .required("Обязательное поле"),
 
-  /* email: Yup.string().email("Некорректный email").required("Обязательное поле"),
-  
+    /*  
     advantages: Yup.array().of(Yup.string()),
   
     radio: Yup.number().required("Обязательное поле"),
@@ -33,4 +39,5 @@ export const schema = Yup.object().shape({
       .test("no-spaces", "Пробелы не допускаются", (value) => {
         return /^\S*$/.test(value);
       }), */
-});
+  })
+  .required();

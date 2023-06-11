@@ -1,4 +1,6 @@
 import { FC } from "react";
+import InputLabel from "../input-label/input-label";
+import InputError from "../input-error/input-error";
 import ReactSelect from "react-select";
 import style from "./select.module.css";
 
@@ -7,6 +9,7 @@ type Props = {
   options: any;
   placeholder: string;
   label?: string;
+  error?: string;
   value: string;
   onChange: () => void;
 };
@@ -15,18 +18,19 @@ const Select: FC<Props> = ({
   options,
   placeholder,
   label,
+  error,
   value,
   onChange,
 }) => {
   return (
     <div className={style.select}>
-      {label && <label className={style.select__label}>{label}</label>}
+      {label && <InputLabel label={label} />}
       <ReactSelect
         value={value}
         onChange={onChange}
         options={options}
         placeholder={placeholder}
-        styles={{          
+        styles={{
           indicatorSeparator: (style) => ({
             ...style,
             display: "none",
@@ -78,6 +82,7 @@ const Select: FC<Props> = ({
           }),
         }}
       />
+      {error && <InputError error={error} />}
     </div>
   );
 };

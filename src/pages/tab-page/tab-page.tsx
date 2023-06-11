@@ -1,4 +1,4 @@
-import { FC, useState, MouseEvent, useCallback } from "react";
+import { FC, useState, MouseEvent, useCallback, useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Steps from "../../components/UI/steps/steps";
 import ButtonLink from "../../components/UI/button-link/button-link";
@@ -24,13 +24,17 @@ const TabPage: FC = () => {
       advantages: [],
       checkboxes: [],
     },
+    mode: "onChange",
     resolver: yupResolver(schema),
   });
 
   const formState = methods.formState;
-
+  /* const dirtyFields = Object.keys(formState.dirtyFields);
   console.log(formState.errors);
-  
+  useEffect(() => {
+    methods.trigger(dirtyFields);
+  }, []); */
+ 
 
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {
@@ -45,7 +49,6 @@ const TabPage: FC = () => {
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      methods.trigger();
       setStep(step);
     },
     []
@@ -77,7 +80,12 @@ const TabPage: FC = () => {
                   Отправить
                 </Button>
               ) : (
-                <Button onClick={onClick(step + 1)}>Вперед</Button>
+                <Button
+                  onClick={onClick(step + 1)}
+                  disabled={!formState.isValid}
+                >
+                  Вперед
+                </Button>
               )}
             </div>
           </form>
