@@ -20,28 +20,34 @@ const InputGroup: FC<Props> = ({ label, name, error }) => {
     control,
     name,
   });
- 
+
   return (
     <div className={style.container}>
       <InputLabel label={label} />
       <ul className={style.list}>
-        {fields.map((item, index) => (
-          <li className={style.item} key={item.id}>
-            <Controller
-              render={({ field }) => (
-                <>
-                  <div className={style.item__input}>
-                    <Input placeholder="Placeholder" {...field} />
-                    <ButtonRemove onClick={() => remove(index)} />
-                  </div>
-                  {error?.[name]?.[index]?.message && <InputError error={error?.[name]?.[index]?.message} />}
-                </>
-              )}
-              name={`${name}[${index}]`}
-              control={control}
-            />
-          </li>
-        ))}
+        {fields.length === 0
+          ? error?.[name]?.message && (
+              <InputError error={error?.[name]?.message} />
+            )
+          : fields.map((item, index) => (
+              <li className={style.item} key={item.id}>
+                <Controller
+                  render={({ field }) => (
+                    <>
+                      <div className={style.item__input}>
+                        <Input placeholder="Placeholder" {...field} />
+                        <ButtonRemove onClick={() => remove(index)} />
+                      </div>
+                      {error?.[name]?.[index]?.message && (
+                        <InputError error={error?.[name]?.[index]?.message} />
+                      )}
+                    </>
+                  )}
+                  name={`${name}.[${index}]`}
+                  control={control}
+                />
+              </li>
+            ))}
       </ul>
       <Button color="secondary" buttonSize="small" onClick={() => append("")}>
         <CrossIcon />

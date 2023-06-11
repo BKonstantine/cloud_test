@@ -15,11 +15,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/schema";
 
 const TabPage: FC = () => {
-  const [step, setStep] = useState(1);
+  const [tab, setTab] = useState(2);
   const [result, setResult] = useState("");
   const tabs = [<FirstTab />, <SecondTab />, <ThirdTab />];
 
   const methods = useForm<FormData>({
+    mode: "onChange",
     resolver: yupResolver(schema),
   });
 
@@ -27,8 +28,18 @@ const TabPage: FC = () => {
   const isValid = formState.isValid;
   const trigger = methods.trigger;
   const firstTabFileds = ["nickname", "name", "sername", "sex"];
-  const secondTabFields = ["advantages", "checkbox", "radio"];
-  const thirdTabFileds = ["about"];
+  const secondTabFields = ["advantages"];
+  const errorFields = Object.keys(formState.errors);
+  const dirtyFields = Object.keys(formState.dirtyFields);
+
+  const checkValidTab = (array: string[]) => {
+    return array.every((item) => {
+      return (
+        !errorFields.some((err) => err === item) &&
+        dirtyFields.some((field) => field === item)
+      );
+    });
+  };
 
   const onSubmit = useCallback(
     methods.handleSubmit((data) => {
@@ -40,10 +51,28 @@ const TabPage: FC = () => {
     [methods]
   );
 
+  const onClickWithValid = useCallback(
+    (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      if (tab === 1 && checkValidTab(firstTabFileds)) {
+        setTab(step);
+      } else {
+        trigger(firstTabFileds);
+      }
+
+      if (tab === 2 && checkValidTab(secondTabFields)) {
+        setTab(step);
+      } else {
+        trigger(secondTabFields);
+      }
+    },
+    [dirtyFields, errorFields, tab]
+  );
+
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      setStep(step);
+      setTab(step);
     },
     []
   );
@@ -55,26 +84,26 @@ const TabPage: FC = () => {
   return (
     <>
       <div className={style.tabs}>
-        <Steps step={step} className={style.tabs__steps} />
+        <Steps step={tab} className={style.tabs__steps} />
         <FormProvider {...methods}>
           <form onSubmit={onSubmit}>
-            {tabs[step - 1]}
+            {tabs[tab - 1]}
             <div className={style.tabs__buttons}>
-              {step === 1 ? (
+              {tab === 1 ? (
                 <ButtonLink to="/" color="secondary">
                   Назад
                 </ButtonLink>
               ) : (
-                <Button onClick={onClick(step - 1)} color="secondary">
-                  {step === 2 ? "Back" : "Назад"}
+                <Button onClick={onClick(tab - 1)} color="secondary">
+                  {tab === 2 ? "Back" : "Назад"}
                 </Button>
               )}
-              {step === 3 ? (
+              {tab === 3 ? (
                 <Button type="submit" buttonSize="large" disabled={!isValid}>
                   Отправить
                 </Button>
               ) : (
-                <Button onClick={onClick(step + 1)}>Вперед</Button>
+                <Button onClick={onClickWithValid(tab + 1)}>Вперед</Button>
               )}
             </div>
           </form>
