@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { nanoid } from "nanoid";
-import { useFormContext, useFieldArray, Controller } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import InputLabel from "../UI/input-label/input-label";
 import Radio from "../UI/radio/radio";
 import style from "./radio-group.module.css";
@@ -12,11 +12,7 @@ type Props = {
 };
 
 const RadioGroup: FC<Props> = ({ label, array, name }) => {
-  const { control } = useFormContext();
-  const { fields } = useFieldArray({
-    control,
-    name,
-  });  
+  const { control } = useFormContext();   
 
   return (
     <div className={style.container}>
