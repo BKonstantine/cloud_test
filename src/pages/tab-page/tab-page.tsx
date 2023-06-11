@@ -29,6 +29,7 @@ const TabPage: FC = () => {
   const trigger = methods.trigger;
 
   const firstTabFileds = ["nickname", "name", "sername", "sex"];
+  const secondTabFields = ["advantages", "checkbox", "radio"];
   const thirdTabFileds = ["about"];
   const dirtyFields = Object.keys(formState.dirtyFields);
   const errorFileds = Object.keys(formState.errors);
@@ -48,13 +49,14 @@ const TabPage: FC = () => {
     }),
     [methods]
   );
-/* 
-  console.log(formState.errors); */
+  
+  console.log(formState.errors);
 
   const onClick = useCallback(
     (step: number) => (event: MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      setStep(step);
+      trigger(secondTabFields)
+      /* setStep(step); */
     },
     []
   );
@@ -81,7 +83,10 @@ const TabPage: FC = () => {
                 </Button>
               )}
               {step === 3 ? (
-                <Button type="submit" buttonSize="large"/*  disabled={!isValid} */>
+                <Button
+                  type="submit"
+                  buttonSize="large" /*  disabled={!isValid} */
+                >
                   Отправить
                 </Button>
               ) : (
